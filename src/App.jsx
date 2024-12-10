@@ -1,5 +1,9 @@
 function App() {
-  return <div className="h-screen    flex justify-center items-center"></div>;
+  return (
+    <div className="flex h-screen items-center justify-center p-10">
+      <h1 className="text-center text-4xl font-bold">Hello, World!</h1>
+    </div>
+  );
 }
 
 export default App;

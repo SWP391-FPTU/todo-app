@@ -14,6 +14,11 @@
   "lint-staged": {
     "src/**/*.{js,jsx,json,scss}": "prettier --single-quote --trailing-comma all --plugin=prettier-plugin-tailwindcss --write"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
