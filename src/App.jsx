@@ -12,7 +12,7 @@ function App() {
   ]);
 
   return (
-    <div className="flex h-screen items-center justify-center bg-blue-200 p-10">
+    <div className="flex h-screen flex-col items-center justify-center space-y-5 bg-blue-200 p-10">
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
         <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
         <div className="grid grid-cols-12 gap-2">
@@ -27,6 +27,7 @@ function App() {
         </div>
         <TaskList tasks={tasks} />
       </div>
+      <p className="text-blue-800">Made by [TeamName]</p>
     </div>
   );
 }
