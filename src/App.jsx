@@ -4,12 +4,26 @@ import { TaskList } from './components/common';
 function App() {
   const [tasks, setTasks] = useState([
     {
-      title: 'Task 1',
+      id: 1,
+      title: 'Todo task',
+      status: 'todo',
     },
     {
-      title: 'Task 2',
+      id: 2,
+      title: 'Doing task',
+      status: 'doing',
+    },
+    {
+      id: 3,
+      title: 'Done task',
+      status: 'done',
     },
   ]);
+
+  const addTask = () => {};
+  const editTask = () => {};
+  const deleteTask = () => {};
+  const changeStatus = () => {};
 
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-5 bg-blue-200 p-10">
