@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-5 bg-blue-200 p-10">
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
-        <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
+        <h1 className="mb-5 text-2xl font-medium">Doing something good!</h1>
         <Form addTask={addTask} />
         <TaskList tasks={tasks} />
       </div>
