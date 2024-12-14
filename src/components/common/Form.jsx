@@ -3,7 +3,7 @@ import { useState } from 'react';
 const Form = ({ addTask }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const chooseAdd = () => {
+  const handleAdd = () => {
     if (inputValue.trim() === '') return; // Kiểm tra input rỗng
     addTask(inputValue);
     setInputValue(''); // Xóa input sau khi thêm task
@@ -22,7 +22,7 @@ const Form = ({ addTask }) => {
         // onClick={() => {
         //   addTask();
         // }}
-        onClick={chooseAdd}
+        onClick={handleAdd}
         className="col-span-2 h-full w-full rounded bg-green-500 p-2 text-sm text-white"
       >
         Add
