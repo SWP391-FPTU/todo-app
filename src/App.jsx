@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, TaskList } from './components/common';
-
+import Filter from './components/common/Filter';
 function App() {
   const [tasks, setTasks] = useState([
     {
@@ -29,6 +29,7 @@ function App() {
       status: 'todo',
     };
     setTasks([...tasks, newTask]);
+    setFilteredTasks([...tasks, newTask]);
   };
 
   const editTask = () => {};
@@ -36,7 +37,10 @@ function App() {
   const deleteTask = (id) => {
     const updateTask = tasks.filter((task) => task.id != id);
     setTasks(updateTask);
+    setFilteredTasks(updateTask);
   };
+
+  const [filteredTasks, setFilteredTasks] = useState(tasks);
 
   const changeStatus = () => {};
 
@@ -45,7 +49,8 @@ function App() {
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
         <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
         <Form addTask={addTask} />
-        <TaskList tasks={tasks} deleteTask={deleteTask} />
+        <Filter tasks={tasks} setFilteredTasks={setFilteredTasks} />
+        <TaskList tasks={filteredTasks} deleteTask={deleteTask} />
       </div>
       <p className="text-blue-800">Made by [TeamName]</p>
     </div>
