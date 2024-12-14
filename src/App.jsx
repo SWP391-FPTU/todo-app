@@ -20,17 +20,24 @@ function App() {
     },
   ]);
 
-  const addTask = () => {
+  const addTask = (title) => {
+    if (!title.trim()) return;
+
     const newTask = {
-      id: 10,
-      title: 'New task',
+      id: Date.now(),
+      title,
       status: 'todo',
     };
-    setTasks((pre) => [...pre, newTask]);
+    setTasks([...tasks, newTask]);
   };
 
   const editTask = () => {};
-  const deleteTask = () => {};
+
+  const deleteTask = (id) => {
+    const updateTask = tasks.filter((task) => task.id != id);
+    setTasks(updateTask);
+  };
+
   const changeStatus = () => {};
 
   return (
@@ -38,7 +45,7 @@ function App() {
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
         <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
         <Form addTask={addTask} />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} />
       </div>
       <p className="text-blue-800">Made by [TeamName]</p>
     </div>
