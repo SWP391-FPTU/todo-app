@@ -40,7 +40,7 @@ function App() {
         <Form addTask={addTask} />
         <TaskList tasks={tasks} />
       </div>
-      <p className="text-blue-800">Made by [TeamName]</p>
+      <p className="text-blue-800">Made by [TeamName] HEHE</p>
     </div>
   );
 }
