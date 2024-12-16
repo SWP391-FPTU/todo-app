@@ -10,9 +10,15 @@ function Filter({ tasks, setFilteredTasks }) {
   };
 
   return (
-    <div>
-      <label htmlFor="filter">Filter by status: </label>
-      <select id="filter" onChange={handleFilterChange}>
+    <div className="flex flex-col items-start space-y-2">
+      <label htmlFor="filter" className="text-lg font-semibold">
+        Filter by status:
+      </label>
+      <select
+        id="filter"
+        onChange={handleFilterChange}
+        className="rounded-md border px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
         <option value="all">All</option>
         <option value="todo">Todo</option>
         <option value="doing">Doing</option>

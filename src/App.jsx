@@ -44,12 +44,16 @@ function App() {
 
   const changeStatus = () => {};
 
+  const filtered = () => {
+    return setFilteredTasks;
+  };
+
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-5 bg-blue-200 p-10">
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
         <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
         <Form addTask={addTask} />
-        <Filter tasks={tasks} setFilteredTasks={setFilteredTasks} />
+        <Filter tasks={tasks} setFilteredTasks={filtered()} />
         <TaskList tasks={filteredTasks} deleteTask={deleteTask} />
       </div>
       <p className="text-blue-800">Made by [TeamName]</p>
