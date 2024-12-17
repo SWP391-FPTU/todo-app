@@ -20,6 +20,8 @@ function App() {
     },
   ]);
 
+  const [statusFilter, setStatusFilter] = useState('all');
+
   const addTask = (title) => {
     if (!title.trim()) return;
 
@@ -28,16 +30,25 @@ function App() {
       title,
       status: 'todo',
     };
-    setTasks([...tasks, newTask]);
-    setFilteredTasks([...tasks, newTask]);
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
+    setFilteredTasks(
+      updatedTasks.filter(
+        (task) => statusFilter === 'all' || task.status === statusFilter,
+      ),
+    );
   };
 
   const editTask = () => {};
 
   const deleteTask = (id) => {
-    const updateTask = tasks.filter((task) => task.id != id);
-    setTasks(updateTask);
-    setFilteredTasks(updateTask);
+    const updatedTasks = tasks.filter((task) => task.id != id);
+    setTasks(updatedTasks);
+    setFilteredTasks(
+      updatedTasks.filter(
+        (task) => statusFilter === 'all' || task.status === statusFilter,
+      ),
+    );
   };
 
   const [filteredTasks, setFilteredTasks] = useState(tasks);
@@ -53,7 +64,11 @@ function App() {
       <div className="h-full w-full max-w-screen-md rounded-xl border bg-white p-10 shadow">
         <h1 className="mb-5 text-2xl font-medium">Doing something!</h1>
         <Form addTask={addTask} />
-        <Filter tasks={tasks} setFilteredTasks={filtered()} />
+        <Filter
+          tasks={tasks}
+          setFilteredTasks={filtered()}
+          setStatusFilter={setStatusFilter}
+        />
         <TaskList tasks={filteredTasks} deleteTask={deleteTask} />
       </div>
       <p className="text-blue-800">Made by [TeamName]</p>

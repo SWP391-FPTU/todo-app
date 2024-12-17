@@ -1,12 +1,14 @@
-function Filter({ tasks, setFilteredTasks }) {
+function Filter({ tasks, setFilteredTasks, setStatusFilter }) {
   const handleFilterChange = (e) => {
     const status = e.target.value;
+    setStatusFilter(status);
     if (status === 'all') {
       setFilteredTasks(tasks);
     } else {
       const filteredTasks = tasks.filter((task) => task.status === status);
       setFilteredTasks(filteredTasks);
     }
+    return status;
   };
 
   return (
